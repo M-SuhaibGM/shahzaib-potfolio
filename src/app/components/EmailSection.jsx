@@ -36,8 +36,10 @@ const EmailSection = () => {
         setEmailSubmitted(true);
         setFormData({ email: "", subject: "", message: "" });
       }
+
     } catch (error) {
       console.error("Error:", error);
+      console.log(error);
     } finally {
       setLoading(false);
     }

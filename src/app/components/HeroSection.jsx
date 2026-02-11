@@ -8,10 +8,10 @@ import Link from "next/link";
 const HeroSection = () => {
   return (
     <section className="relative py-12 lg:py-24 overflow-hidden">
-     {/* 🌙 NEW "BLUE MOON" TOP GLOW */}
+      {/* 🌙 NEW "BLUE MOON" TOP GLOW */}
       <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/40 blur-[150px] rounded-full z-0" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-12 relative z-10 gap-8"/>
+      <div className="grid grid-cols-1 sm:grid-cols-12 relative z-10 gap-8" />
       {/* Background Glow Effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full z-0" />
 
@@ -93,7 +93,7 @@ const HeroSection = () => {
                 className="overflow-hidden rounded-full w-[250px] h-[250px] lg:w-[320px] lg:h-[320px] relative"
               >
                 <Image
-                  src="/images/my pic.jpg"
+                  src="/images/mypic.jpeg"
                   alt="M Suhiab"
                   className="object-cover"
                   fill
