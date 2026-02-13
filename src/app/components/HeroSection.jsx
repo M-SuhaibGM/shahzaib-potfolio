@@ -55,7 +55,7 @@ const HeroSection = () => {
               </button>
             </Link>
 
-            <a href="/Resume.docx" download className="w-full sm:w-auto">
+            <a href="/Resume.pdf" download className="w-full sm:w-auto">
               <button className="px-8 py-4 w-full rounded-full bg-transparent text-white font-bold border-2 border-white/20 hover:border-white hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2">
                 Download CV
               </button>
