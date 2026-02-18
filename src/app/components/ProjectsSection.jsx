@@ -1,195 +1,220 @@
 "use client";
-import React, { useState, useRef } from "react";
-import ProjectCard from "./ProjectCard";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  CommandLineIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/outline";
 
-const projectsData = [
+const PROJECTS = [
   {
-    id: 6,
-    title: " messanger ",
-    description: "Next-auth Authentication , mysql, shadcn ,Next.js ,prsima , react,TypeScript, Tailwind",
-    image: "/images/projects/messanger.png",
-    tag: ["All", "Full Stack"],
-    gitUrl: "https://github.com/M-SuhaibGM/Messenger.git",
-    previewUrl: "https://messenger-smoky-three.vercel.app/",
-  },
-  {
-    id: 12,
-    title: " Canva",
-    description: "Next-auth Authentication , mongodb, shadcn ,Next.js ,prsima , react,TypeScript, Tailwind,paypal,Ai integration, Fabric js",
-    image: "/images/projects/canva.png",
-    tag: ["All", "Full Stack"],
-    gitUrl: "https://github.com/M-SuhaibGM/canva-clone.git",
-    previewUrl: "https://canva-clone-xi-jet.vercel.app/",
-  }, {
-    id: 4,
-    title: "Trello",
-    description: "mysql ,Nextjs , react, javascript , TypeScript, Tailwind ,clerk, shadcn ,Unsplash",
-    image: "/images/projects/trelo.png",
-    tag: ["All", "Full Stack"],
-    gitUrl: "https://github.com/M-SuhaibGM/Taskify.git",
-    previewUrl: "https://taskify-lyart-psi.vercel.app/",
-  }, {
-    id: 22,
-    title: "Udemy",
-    description: "mysql ,Nextjs , react, javascript , TypeScript, Tailwind ,clerk, shadcn ,stripe",
-    image: "/images/projects/lms.png",
-    tag: ["All", "Full Stack"],
-    gitUrl: "https://github.com/M-SuhaibGM/lms.git",
-    previewUrl: "https://lms-seven-sand.vercel.app/",
-  },
-  {
-    id: 1,
-    title: "blog Website",
-    description: "react mysql css express  authantication javascript ",
-    image: "/images/projects/blog.png",
-    tag: ["All", "Full Stack"],
-    gitUrl: "https://github.com/M-SuhaibGM/blog-app.git",
-    previewUrl: "/",
+    id: 1, // or the next available ID in your PROJECTS array
+    title: "Automated AWS CI/CD Pipeline",
+    description: "Designed and implemented an end-to-end automated deployment pipeline for a full-stack application on AWS EC2, following industry-standard production practices.",
+    role: "DevOps Engineer",
+    image: "/images/projects/PROJECT1.jpg", // Update this to your project screenshot path
+    tech: ["GitHub Actions", "AWS EC2", "AWS ECR", "Docker", "Linux", "SSH"],
+    features: [
+      "Automated CI/CD triggered on every GitHub commit",
+      "Secure secrets management using GitHub Secrets",
+      "Containerized multi-tier (Frontend/Backend) deployment",
+      "Automated image versioning and ECR push/pull logic"
+    ],
+    achievements: [
+      "Achieved zero manual deployment steps",
+      "Implemented secure, production-ready AWS credential handling",
+      "Automated post-deployment validation and cleanup",
+      "Streamlined delivery for faster and more reliable deployments"
+    ]
   },
   {
     id: 2,
-    title: " spotfy Website",
-    description: "NEXT.js prisma react javascript  mysql",
-    image: "/images/projects/spotify.png",
-    tag: ["All", "Full Stack"],
-    gitUrl: "https://github.com/M-SuhaibGM/Spotify-Clone.git",
-    previewUrl: "/",
+    title: "Multi-Environment IaC Architecture",
+    description: "Architected and deployed isolated Development, Staging, and Production environments on AWS using Terraform Custom Modules for standardized infrastructure delivery.",
+    role: "Cloud Infrastructure Engineer",
+    image: "/images/projects/PROJECT2.jpg", // Update with your Terraform/AWS architecture diagram
+    tech: ["Terraform", "AWS (EC2/S3/DynamoDB)", "HCL", "Remote Backend", "State Management"],
+    features: [
+      "Custom Terraform Modules for reusable and maintainable infrastructure",
+      "Remote State Management using S3 for secure team collaboration",
+      "State Locking with DynamoDB to prevent concurrent deployment conflicts",
+      "Environment-specific configurations for VMs, Storage, and Databases"
+    ],
+    achievements: [
+      "Achieved 100% automated infrastructure provisioning",
+      "Eliminated manual configuration errors across environments",
+      "Reduced environment setup time from hours to minutes",
+      "Implemented scalable architecture capable of supporting complex delivery cycles"
+    ]
   },
   {
     id: 3,
-    title: "Weather Application",
-    description: "Project 3 description",
-    image: "/images/projects/weather.png",
-    tag: ["All", "Frontend"],
-    gitUrl: "https://github.com/M-SuhaibGM/weather-app.git",
-    previewUrl: "https://weather-app-nu-tan-11.vercel.app/",
+    title: "Cloud Governance & State Security",
+    description: "Implemented a robust Infrastructure as Code (IaC) governance model on AWS, focusing on centralized state management and high-concurrency protection.",
+    role: "Infrastructure Lead",
+    image: "/images/projects/PROJECT3.jpg", // Replace with a screenshot of your S3 bucket or DynamoDB table
+    tech: ["Terraform", "AWS S3", "Amazon DynamoDB", "IAM Policies", "Encryption"],
+    features: [
+      "Centralized State Management via encrypted S3 backend",
+      "Distributed State Locking mechanism using DynamoDB",
+      "Version control integration for disaster recovery of state files",
+      "Cross-team collaboration framework for shared infrastructure"
+    ],
+    achievements: [
+      "Eliminated 100% of risk regarding concurrent state overwrites",
+      "Established a secure, production-grade audit trail for infra changes",
+      "Reduced accidental state corruption risks by implementing remote storage",
+      "Standardized enterprise-level DevOps workflows for team environments"
+    ]
   },
-
+  {
+    id: 4,
+    title: "Real-Time Container Observability",
+    description: "Implemented a comprehensive monitoring and observability system for Docker environments to track container health, resource utilization, and performance metrics.",
+    role: "Observability Specialist",
+    image: "/images/projects/PROJECT4.jpg", // Use a screenshot of your Grafana dashboard
+    tech: ["Prometheus", "Grafana", "cAdvisor", "Docker", "Time-Series Data"],
+    features: [
+      "Real-time resource tracking (CPU, Memory, Disk, Network I/O)",
+      "Container lifecycle monitoring and uptime tracking",
+      "Automated discovery of running, idle, or deleted containers",
+      "Integrated cAdvisor for granular, container-level performance data"
+    ],
+    achievements: [
+      "Enabled proactive identification of system performance bottlenecks",
+      "Improved root cause analysis speed during container incidents",
+      "Optimized resource allocation based on historical usage data",
+      "Built a production-ready dashboard for 24/7 infrastructure health visibility"
+    ]
+  },
   {
     id: 5,
-    title: "facebook clone ",
-    description: "Authentication  mysql node.js express react CRUD operations",
-    image: "/images/projects/facebook.png",
-    tag: ["All", "Full Stack"],
-    gitUrl: "https://github.com/M-SuhaibGM/facebook-clone.git",
-    previewUrl: "/",
-  },
-
-  {
-    id: 7,
-    title: "Dise game",
-    description: "javascript html css",
-    image: "/images/projects/dice.png",
-    tag: ["All", "Frontend"],
-    gitUrl: "https://github.com/M-SuhaibGM/dice-game.git",
-    previewUrl: "/",
-  },
-  {
-    id: 7,
-    title: "NETFLIX clone ",
-    description: "NEXT JS prisma chakra ui Authentication ",
-    image: "/images/projects/netflix.png",
-    tag: ["All", "Full Stack"],
-    gitUrl: "https://github.com/M-SuhaibGM/Netflix-Clone.git",
-    previewUrl: "/",
-  }, {
-    id: 8,
-    title: "Portfolio",
-    description: "NEXT JS tailwand css react javascript",
-    image: "/images/projects/portfolio.png",
-    tag: ["All", "Frontend"],
-    gitUrl: "https://github.com/M-SuhaibGM/portfolio.git",
-    previewUrl: "/",
-  },
+    title: "Resilient & Scalable AWS Architecture",
+    description: "Designed and stress-tested a highly available web infrastructure on AWS utilizing Auto Scaling and Load Balancing to ensure 100% uptime under dynamic workloads.",
+    role: "Cloud Architect",
+    image: "/images/projects/PROJECT5.jpg", // Use a diagram showing ALB and Auto Scaling groups
+    tech: ["AWS (ALB/ASG)", "CloudWatch", "EC2 Launch Templates", "SNS", "Stress Testing"],
+    features: [
+      "Traffic distribution via Application Load Balancer (ALB)",
+      "Dynamic resource provisioning with Auto Scaling Groups",
+      "Standardized deployments using EC2 Launch Templates",
+      "Automated monitoring and email alerts via CloudWatch & SNS"
+    ],
+    achievements: [
+      "Validated system stability through rigorous high-traffic stress testing",
+      "Optimized infrastructure costs by scaling down during low-demand periods",
+      "Enhanced fault tolerance with multi-instance redundancy",
+      "Implemented proactive issue resolution via real-time CloudWatch alerts"
+    ]
+  }
 ];
 
-const ProjectTag = ({ name, onClick, isSelected }) => {
-  const buttonStyles = isSelected
-    ? "text-white border-blue-500 bg-blue-500"
-    : "text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700 hover:border-blue-500 hover:text-blue-500";
+const ProjectCard = ({ project, index }) => {
+  const isEven = index % 2 === 0;
+
   return (
-    <button
-      className={`${buttonStyles} rounded-full border-2 px-6 py-2 text-sm font-bold cursor-pointer transition-all duration-300`}
-      onClick={() => onClick(name)}
-    >
-      {name}
-    </button>
+    <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center mb-32`}>
+      {/* --- LEFT SIDE: PROJECT THUMBNAIL --- */}
+      <motion.div
+        initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full lg:w-1/2"
+      >
+        <div className="relative group rounded-3xl overflow-hidden border border-orange-500/20 shadow-2xl">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-amber-950/40 group-hover:bg-transparent transition-colors duration-500" />
+        </div>
+      </motion.div>
+
+      {/* --- RIGHT SIDE: PROJECT DETAILS --- */}
+      <motion.div
+        initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full lg:w-1/2 space-y-6"
+      >
+        <div className="space-y-2">
+          <h3 className="text-4xl font-black text-white tracking-tighter leading-tight">
+            {project.title}
+          </h3>
+          <p className="text-amber-100/70 text-lg font-light leading-relaxed">
+            {project.description}
+          </p>
+        </div>
+
+        <div className="flex items-center gap-2 text-orange-400 font-mono text-sm font-bold uppercase tracking-widest">
+          <CommandLineIcon className="w-5 h-5" />
+          {project.role}
+        </div>
+
+        {/* Technology Tags */}
+        <div className="space-y-3">
+          <h4 className="text-xs font-mono font-bold text-white/40 uppercase tracking-[0.2em]">Technologies Used:</h4>
+          <div className="flex flex-wrap gap-2">
+            {project.tech.map((t) => (
+              <span key={t} className="px-4 py-1.5 rounded-full bg-amber-950/60 border border-orange-500/20 text-orange-400 font-mono text-xs">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Key Features */}
+        <div className="space-y-3">
+          <h4 className="text-xs font-mono font-bold text-white/40 uppercase tracking-[0.2em]">Key Features:</h4>
+          <ul className="space-y-2">
+            {project.features.map((feature) => (
+              <li key={feature} className="flex items-center gap-3 text-amber-100/80 text-sm">
+                <CheckCircleIcon className="w-5 h-5 text-green-500/70" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Achievements Grid */}
+        <div className="pt-4">
+          <h4 className="text-xs font-mono font-bold text-white/40 uppercase tracking-[0.2em] mb-4">Key Achievements:</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {project.achievements.map((ach) => (
+              <div key={ach} className="p-4 rounded-2xl bg-orange-500/5 border-l-4 border-orange-500 text-white font-mono text-xs tracking-tight">
+                {ach}
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
 const ProjectsSection = () => {
-  const [tag, setTag] = useState("All");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  const handleTagChange = (newTag) => {
-    setTag(newTag);
-  };
-
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
-
   return (
-    <section id="projects" className="py-20 px-4 md:px-8">
-      <div className="flex flex-col items-center mb-12">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter"
-        >
-          Featured <span className="text-blue-500">Projects</span>
-        </motion.h2>
-
-        {/* Modern Filter Tabs */}
-        <div className="flex flex-row justify-center items-center gap-2 py-6 flex-wrap">
-          <ProjectTag
-            onClick={handleTagChange}
-            name="All"
-            isSelected={tag === "All"}
-          />
-          <ProjectTag
-            onClick={handleTagChange}
-            name="Full Stack"
-            isSelected={tag === "Full Stack"}
-          />
-          <ProjectTag
-            onClick={handleTagChange}
-            name="Frontend"
-            isSelected={tag === "Frontend"}
-          />
-        </div>
+    <section id="projects" className="py-24 relative overflow-hidden">
+      {/* Subtle background text */}
+      <div className="absolute top-20 right-[-5%] text-[15rem] font-black text-white/[0.02] select-none pointer-events-none uppercase">
+        Projects
       </div>
 
-      <motion.ul
-        ref={ref}
-        layout
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-        <AnimatePresence>
-          {filteredProjects.map((project, index) => (
-            <motion.li
-              key={project.id}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
-              <ProjectCard
-                title={project.title}
-                description={project.description}
-                imgUrl={project.image}
-                gitUrl={project.gitUrl}
-                previewUrl={project.previewUrl !== "/" ? project.previewUrl : null}
-                // Automatically split description into tags for the badges
-                tags={project.description.split(",").map(t => t.trim())}
-              />
-            </motion.li>
+      <div className="container mx-auto px-6">
+        <div className="mb-20">
+          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter mb-4">
+            Production <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-300">Deployments</span>
+          </h2>
+          <div className="h-1.5 w-24 bg-orange-600 rounded-full" />
+        </div>
+
+        <div className="space-y-20">
+          {PROJECTS.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
-        </AnimatePresence>
-      </motion.ul>
+        </div>
+      </div>
     </section>
   );
 };

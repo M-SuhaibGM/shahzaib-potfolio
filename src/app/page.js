@@ -5,12 +5,14 @@ import EmailSection from "./components/EmailSection";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import CertificatesPage from "./components/Certificates";
+import Skills from "./components/Skills";
+import AchievementsSection from "./components/Achievements";
 // import { TracingBeam } from "./components/ui/tracing-beam"; // Example Shadcn/Aceternity component
 
 export default function Home() {
   return (
     // The main wrapper handles the Dark/Light background transition
-    <main className="min-h-screen bg-slate-800  text-black dark:text-slate-100 transition-colors duration-500">
+    <main className="min-h-screen bg-slate-700  text-black dark:text-slate-100 transition-colors duration-500">
       <Navbar />
 
       {/* Hero Section: Better mobile handling */}
@@ -29,6 +31,9 @@ export default function Home() {
         <section id="about" className="scroll-mt-20">
           <AboutSection />
         </section>
+        <section id="skills" className="scroll-mt-20">
+          <Skills />
+        </section>
 
         <section id="projects" className="scroll-mt-20">
           <ProjectsSection />
@@ -36,6 +41,9 @@ export default function Home() {
 
         <section id="certificates" className="scroll-mt-20">
           <CertificatesPage />
+        </section>
+        <section id="achievements" className="scroll-mt-20">
+          <AchievementsSection />
         </section>
 
         <section id="contact" className="scroll-mt-20">

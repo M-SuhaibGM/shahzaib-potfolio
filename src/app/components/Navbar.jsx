@@ -2,36 +2,36 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { 
+  Bars3Icon, 
+  XMarkIcon, 
+  ServerIcon 
+} from "@heroicons/react/24/outline";
 import NavLink from "./NavLink";
 import MenuOverlay from "./MenuOverlay";
-import { UserIcon, CodeBracketIcon, AcademicCapIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
+// 1. Added "Skills" and removed icons from the array
 const navLinks = [
-  { title: "About", path: "#about", icon: <UserIcon className="w-4 h-4" /> },
-  { title: "Projects", path: "#projects", icon: <CodeBracketIcon className="w-4 h-4" /> },
-  { title: "Certificates", path: "#certificates", icon: <AcademicCapIcon className="w-4 h-4" /> },
-  { title: "Contact", path: "#contact", icon: <EnvelopeIcon className="w-4 h-4" /> },
+  { title: "About", path: "#about" },
+  { title: "Skills", path: "#skills" }, // New Section
+  { title: "Projects", path: "#projects" },
+  { title: "Achievements", path: "#achievements" },
+  { title: "Certifications", path: "#certificates" },
+  { title: "Connect", path: "#contact" },
 ];
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // 1. Handle background transparency on scroll
-      setIsScrolled(currentScrollY > 20);
-
-      // 2. Handle hide/show on scroll direction
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false); // Scrolling down
+        setIsVisible(false);
       } else {
-        setIsVisible(true); // Scrolling up
+        setIsVisible(true);
       }
       setLastScrollY(currentScrollY);
     };
@@ -44,41 +44,49 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: isVisible ? 0 : -100 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="fixed top-4 left-0 right-0 z-50 mx-auto w-[95%] md:w-[90%] lg:w-[75%]"
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 mx-auto w-full"
     >
-      <div
-        className={`rounded-full border-4 bg-gray-700 border-cyan-500 transition-all duration-500 ease-in-out px-6 py-2.5 `}
-      >
-        <div className="flex items-center justify-between">
+      <div className="bg-slate-950/90 backdrop-blur-lg border-b border-orange-500/20 px-4 md:px-8 py-3">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          
           {/* Logo Section */}
           <Link href={"/"} className="flex items-center gap-3 group">
             <div className="relative">
               <motion.div
-                className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-cyan-400 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000"
+                animate={{ opacity: [0.3, 0.6, 0.3] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="absolute -inset-1 bg-orange-500 rounded-lg blur-sm"
               />
-              <motion.img
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.7 }}
-                src="images/LOGO.png"
-                alt="logo"
-                className="relative w-9 h-9 rounded-full border border-black/10 dark:border-white/20 object-cover"
-              />
+              <div className="relative bg-slate-900 p-2 rounded border border-orange-500/40 group-hover:border-orange-500 transition-colors">
+                <ServerIcon className="w-6 h-6 text-orange-500" />
+              </div>
             </div>
-            <span className="hidden sm:block font-extrabold text-sm tracking-tighter text-slate-900 dark:text-white">
-              DEV.<span className="text-violet-600 dark:text-cyan-400">PORTFOLIO</span>
-            </span>
+            <div className="flex flex-col">
+              <span className=" font-bold text-sm tracking-widest text-white">
+                Shahzaib <span className="text-orange-500 ">Akram</span>
+              </span>
+              <span className="hidden xs:block text-[9px] text-slate-500 font-mono -mt-1 uppercase tracking-tighter">
+                Status: Operational
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center">
-            <ul className="flex space-x-2">
+          {/* Desktop Nav - Removed Icon passing to NavLink */}
+          <div className="hidden lg:flex items-center">
+            <ul className="flex space-x-1 xl:space-x-4">
               {navLinks.map((link, index) => (
-                <li key={index} className="relative group">
-                  <NavLink href={link.path} title={link.title} icon={link.icon} />
-                  {/* Subtle hover underline */}
+                <li key={index} className="relative group px-1">
+                  <div className="relative z-10  ">
+                    <NavLink href={link.path} title={link.title} />
+                  </div>
+                  
+                  {/* Link Background Hover Effect */}
+                  <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-500/10 rounded-md transition-all duration-300 -z-0" />
+                  
+                  {/* Bottom Border Glow */}
                   <motion.div
-                    className="absolute bottom-0 left-0 w-0 h-[2px] bg-violet-600 dark:bg-cyan-400 transition-all duration-300 group-hover:w-full"
+                    className="absolute -bottom-1 left-0 w-0 h-[2px] bg-white  transition-all duration-300 group-hover:w-full shadow-[0_0_10px_#f97316]"
                   />
                 </li>
               ))}
@@ -86,10 +94,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Button */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setNavbarOpen(!navbarOpen)}
-              className="flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-slate-800 dark:text-white transition-all"
+              className="p-2 rounded border border-slate-800 text-orange-500 hover:bg-orange-500/10 transition-all"
             >
               {navbarOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
             </button>
@@ -101,12 +109,12 @@ const Navbar = () => {
       <AnimatePresence>
         {navbarOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute top-16 left-0 right-0 p-2"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="bg-slate-950 border-b border-orange-500/20 overflow-hidden"
           >
-            <div className="bg-white/95 dark:bg-zinc-900/95 backdrop-blur-2xl border border-black/5 dark:border-white/10 rounded-3xl p-4 shadow-2xl">
+            <div className="p-6 bg-gradient-to-b from-slate-950 to-slate-900">
               <MenuOverlay links={navLinks} />
             </div>
           </motion.div>
