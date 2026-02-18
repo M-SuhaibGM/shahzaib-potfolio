@@ -173,7 +173,7 @@ const CertificatesSection = () => {
                       <p className="text-xs font-mono text-amber-100/60 uppercase tracking-tighter">Status: Authenticated</p>
                     </div>
                     <p className="text-sm text-amber-100/40 italic font-light leading-relaxed">
-                      "This credential confirms that the recipient has completed the rigorous training and evaluation required for professional industry standards."
+                      This credential confirms that the recipient has completed the rigorous training and evaluation required for professional industry standards.
                     </p>
                   </div>
                 </div>

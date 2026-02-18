@@ -17,7 +17,7 @@ export async function POST(req) {
     // 2. Define the mail options
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: "mmsohaib617@gmail.com",
+      to: "shahzaib.kp766@gmail.com",
       subject: subject,
       // Using 'html' instead of 'react' component
       html: `
