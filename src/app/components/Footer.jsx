@@ -22,7 +22,7 @@ const Footer = () => {
           {/* Brand & About Section */}
           <div className="flex flex-col space-y-4">
             <Link href="/" className="text-2xl font-black tracking-tighter text-white">
-              CORE.<span className="text-orange-500 text-xl font-mono">OPS</span>
+              Shahzaib <span className="text-orange-500 text-2xl ">Akaram</span>
             </Link>
             <p className="text-amber-100/60 max-w-xs leading-relaxed text-[14px]">
               Architecting resilient cloud infrastructures and automated CI/CD pipelines. 

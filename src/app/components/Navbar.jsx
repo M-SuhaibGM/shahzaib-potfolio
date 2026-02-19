@@ -2,10 +2,10 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Bars3Icon, 
-  XMarkIcon, 
-  ServerIcon 
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ServerIcon
 } from "@heroicons/react/24/outline";
 import NavLink from "./NavLink";
 import MenuOverlay from "./MenuOverlay";
@@ -16,6 +16,7 @@ const navLinks = [
   { title: "Skills", path: "#skills" }, // New Section
   { title: "Projects", path: "#projects" },
   { title: "Achievements", path: "#achievements" },
+  { title: "Experience", path: "#experience" },
   { title: "Certifications", path: "#certificates" },
   { title: "Connect", path: "#contact" },
 ];
@@ -49,7 +50,7 @@ const Navbar = () => {
     >
       <div className="bg-slate-950/90 backdrop-blur-lg border-b border-orange-500/20 px-4 md:px-8 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          
+
           {/* Logo Section */}
           <Link href={"/"} className="flex items-center gap-3 group">
             <div className="relative">
@@ -80,10 +81,10 @@ const Navbar = () => {
                   <div className="relative z-10  ">
                     <NavLink href={link.path} title={link.title} />
                   </div>
-                  
+
                   {/* Link Background Hover Effect */}
                   <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-500/10 rounded-md transition-all duration-300 -z-0" />
-                  
+
                   {/* Bottom Border Glow */}
                   <motion.div
                     className="absolute -bottom-1 left-0 w-0 h-[2px] bg-white  transition-all duration-300 group-hover:w-full shadow-[0_0_10px_#f97316]"

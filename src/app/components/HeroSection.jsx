@@ -4,6 +4,7 @@ import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { MapPinIcon } from "@heroicons/react/24/outline";
 
 const HeroSection = () => {
   return (
@@ -21,32 +22,48 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="col-span-1 sm:col-span-8 flex flex-col items-center sm:items-start text-center sm:text-left justify-self-start"
         >
-          <h1 className="text-white mb-6 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600">
+          {/* --- NAME SECTION (Increased Size) --- */}
+          <h2 className="text-orange-500  font-bold text-2xl sm:text-3xl lg:text-4xl mb-4 tracking-[0.2em] ">
+            Shahzaib Akram
+          </h2>
+
+          <h1 className="text-white mb-6 font-extrabold tracking-tighter leading-tight">
+            <span className="text-3xl sm:text-3xl pb-1 lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600">
               Deploying{" "}
             </span>
             <br />
+            {/* --- ANIMATION TEXT (Decreased Size) --- */}
             <TypeAnimation
               sequence={[
-                "SCALABLE INFRA",
+                "DevOps Engineer",
                 1500,
-                "CI/CD PIPELINES",
+                "CI/CD Piplines Expert",
                 1500,
-                "CLOUD SOLUTIONS",
+                "Cloud Infrastructure Specialist",
                 1500,
-                "KUBERNETES",
+                "Infrastructure as Code Advocate",
+                1500,
+                "AWS & Azure Professional",
+                1500,
+                "Kubernetes Orchestrator",
                 1500,
               ]}
               wrapper="span"
               speed={50}
               repeat={Infinity}
-              className="text-white font-mono"
+              className="text-white  text-2xl sm:text-3xl lg:text-3xl"
             />
           </h1>
 
-          <p className="text-slate-400 text-base sm:text-lg mb-3 lg:text-xl max-w-lg leading-relaxed font-light">
-            I am a passionate DevOps Engineer with strong hands-on expertise in DevOps practices, Cloud Computing, and system troubleshooting. I specialize in building reliable, scalable, and automated infrastructure solutions while ensuring performance, security, and efficiency.
+          <p className="text-slate-400 text-base sm:text-lg mb-2 lg:text-xl max-w-lg leading-relaxed font-light">
+            I am a passionate DevOps Engineer with strong hands-on expertise in DevOps practices, Cloud Computing, and system troubleshooting. I specialize in building reliable, scalable, and automated infrastructure solutions.
           </p>
+
+          {/* --- LOCATION SECTION --- */}
+          <div className="flex items-center gap-2 mb-8 text-slate-500  text-sm">
+            <MapPinIcon className="w-4 h-4 text-orange-500" />
+            <span>Lahore, Punjab, Pakistan</span>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start w-full sm:w-auto">
             <Link href="#contact" className="w-full sm:w-auto">
@@ -71,7 +88,6 @@ const HeroSection = () => {
           className="col-span-1 sm:col-span-4 flex justify-center items-center mt-12 lg:mt-0 relative"
         >
           <div className="relative">
-            {/* Pulsing Hexagon/Circle Glow */}
             <motion.div
               animate={{
                 rotate: [0, 90, 180, 270, 360],
@@ -84,10 +100,8 @@ const HeroSection = () => {
               className="absolute -inset-6 rounded-2xl border border-orange-500/30 border-dashed"
             />
 
-            {/* Inner Power Glow */}
             <div className="absolute inset-0 rounded-full bg-orange-600/30 blur-3xl animate-pulse" />
 
-            {/* Profile Image Container - Changed to a slightly "Squircle" shape for DevOps feel */}
             <div className="relative rounded-full p-1 bg-gradient-to-tr from-orange-600 via-amber-500 to-orange-400 shadow-[0_0_50px_rgba(234,88,12,0.2)]">
               <div className="bg-slate-900 rounded-full p-1">
                 <motion.div
@@ -97,7 +111,7 @@ const HeroSection = () => {
                   <Image
                     src="/images/mypic.jpeg"
                     alt="DevOps Engineer"
-                    className="object-cover  transition-all duration-500"
+                    className="object-cover transition-all duration-500"
                     fill
                     priority
                   />

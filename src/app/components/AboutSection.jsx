@@ -6,7 +6,10 @@ import {
   CpuChipIcon,
   CloudArrowUpIcon,
   AcademicCapIcon,
-  BriefcaseIcon
+  BriefcaseIcon,
+  CheckBadgeIcon,
+  ServerIcon,
+  CommandLineIcon
 } from "@heroicons/react/24/outline";
 
 const TAB_DATA = [
@@ -24,14 +27,15 @@ const TAB_DATA = [
           },
           {
             degree: "FSC (Pre-Engineering)",
-            school: "Aspire College Deplapur ",
+            school: "Aspire College Depalpur",
             year: "2020 - 2022",
-            desc: "Foundation in Mathematics and Physic Logic."
-          }, {
-            degree: "Matric",
-            school: "Govt. High School Depalpur ",
-            year: "2020 - 2022",
-            desc: ""
+            desc: "Foundation in Mathematics and Physics Logic."
+          },
+          {
+            degree: "Matriculation",
+            school: "Govt. High School Depalpur",
+            year: "2018 - 2020",
+            desc: "Science Group with focus on Computer Science."
           }
         ].map((edu, idx) => (
           <div key={idx} className="relative pl-6 border-l-2 border-orange-500/30 py-1">
@@ -45,7 +49,6 @@ const TAB_DATA = [
       </motion.div>
     ),
   },
-
 ];
 
 const AboutSection = () => {
@@ -59,63 +62,104 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="py-20 bg-slate-950 text-slate-200" id="about">
-      <div className="container mx-auto px-4 md:grid md:grid-cols-2 gap-12 items-start xl:gap-24">
+    <section className="py-24 bg-slate-950 text-slate-200 overflow-hidden" id="about">
+      <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative">
+        
+        {/* --- LEFT SIDE: SYSTEM DASHBOARD (REPLACES IMAGE) --- */}
+        <div className="relative space-y-6">
+          {/* Decorative Code Background Element */}
+          <div className="absolute -top-10 -left-10 text-orange-500/5 font-mono text-8xl select-none pointer-events-none">
+            {"{...}"}
+          </div>
 
-        {/* LEFT SIDE: Identity & Status */}
-        <div className="space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="relative rounded-2xl overflow-hidden border border-orange-500/20 h-[400px] shadow-2xl"
-          >
-            <img src="/images/bg.jpg" alt="Server Room" className="object-cover w-full h-full transition-all duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 flex items-center gap-3 text-white">
-              <div className="p-2 bg-orange-600 rounded-lg shadow-[0_0_15px_rgba(234,88,12,0.4)]">
-                <MapPinIcon className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="text-[10px] opacity-70 uppercase font-mono font-bold tracking-widest">Zone</p>
-                <span className="text-sm font-bold font-mono">pk-east-1 (lahore)</span>
-              </div>
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Status Card 1 */}
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="p-6 rounded-3xl bg-slate-900/50 border border-orange-500/10 backdrop-blur-sm"
+            >
+              <BriefcaseIcon className="w-8 h-8 text-orange-500 mb-4" />
+              <h3 className="text-white font-bold text-lg">Open For Work</h3>
+              <p className="text-slate-500 text-xs font-mono uppercase mt-2">DevOps & Cloud Roles</p>
+            </motion.div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="p-5 rounded-2xl bg-slate-900 border border-orange-500/10 hover:border-orange-500/40 transition-all group">
-              <AcademicCapIcon className="w-6 h-6 text-orange-500 mb-3" />
-              <p className="text-[10px] font-bold uppercase text-slate-500 mb-1 font-mono">Current Status</p>
-              <p className="text-sm font-bold text-white">BSCS Student</p>
-            </div>
-            <div className="p-5 rounded-2xl bg-slate-900 border border-orange-500/10 hover:border-orange-500/40 transition-all group">
-              <BriefcaseIcon className="w-6 h-6 text-amber-500 mb-3" />
-              <p className="text-[10px] font-bold uppercase text-slate-500 mb-1 font-mono">Open For</p>
-              <p className="text-sm font-bold text-white">DevOps Internships</p>
+            {/* Status Card 2 */}
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="p-6 rounded-3xl bg-slate-900/50 border border-orange-500/10 backdrop-blur-sm"
+            >
+              <CpuChipIcon className="w-8 h-8 text-amber-500 mb-4" />
+              <h3 className="text-white font-bold text-lg">System Health</h3>
+              <p className="text-orange-500/80 text-xs font-mono uppercase mt-2">100% Uptime Mindset</p>
+            </motion.div>
+
+            {/* Status Card 3 (Full Width on Mobile) */}
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="col-span-1 sm:col-span-2 p-6 rounded-3xl bg-gradient-to-br from-slate-900 to-orange-950/20 border border-orange-500/20"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-orange-500/10 rounded-xl">
+                  <ServerIcon className="w-6 h-6 text-orange-500" />
+                </div>
+                <div>
+                  <h3 className="text-white font-bold">Infrastucture as Code</h3>
+                  <p className="text-slate-400 text-sm italic">"Automate everything, document nothing manual."</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Technical Radar / Mini List */}
+          <div className="p-8 rounded-3xl bg-slate-900/30 border border-white/5 space-y-4">
+            <h4 className="text-xs font-mono font-bold text-orange-500/60 uppercase tracking-widest">Core Principles</h4>
+            <div className="space-y-3">
+              {[
+                { label: "Automation First", icon: <CommandLineIcon className="w-4 h-4" /> },
+                { label: "Scalable Architecture", icon: <CloudArrowUpIcon className="w-4 h-4" /> },
+                { label: "Security & Monitoring", icon: <CheckBadgeIcon className="w-4 h-4" /> }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-slate-300">
+                  <span className="text-orange-500">{item.icon}</span>
+                  <span className="text-sm font-medium">{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* RIGHT SIDE: Narrative & Tabs */}
-        <div className="mt-8 md:mt-0 flex flex-col h-full">
-          <h2 className="text-5xl font-black mb-6 tracking-tighter text-white">
-            Root <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400 underline decoration-orange-500/30">History</span>
-          </h2>
-          <p className="text-base lg:text-lg text-slate-400 leading-relaxed mb-8 font-light">
-            I am a junior DevOps Engineer passionate about optimizing the development lifecycle.
-            I focus on creating <span className="text-orange-400">self-healing infrastructures</span> and
-            robust delivery pipelines that allow teams to ship code faster and with fewer errors.
-          </p>
+        {/* --- RIGHT SIDE: NARRATIVE & TABS --- */}
+        <div className="flex flex-col">
+          <div className="mb-8">
+            <h2 className="text-5xl font-black mb-6 tracking-tighter text-white">
+              Root <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">History</span>
+            </h2>
+            <div className="h-1 w-20 bg-orange-600 rounded-full mb-8" />
+            
+            <p className="text-lg text-slate-400 leading-relaxed font-light">
+              I am a junior <span className="text-white font-semibold">DevOps Engineer</span> passionate about optimizing the development lifecycle. 
+              My expertise lies in bridging the gap between development and operations through 
+              <span className="text-orange-400"> self-healing infrastructures</span> and robust delivery pipelines.
+            </p>
+          </div>
 
+          {/* Tabs Navigation */}
           <div className="flex flex-row gap-8 mb-10 border-b border-white/5">
-            {["education"].map((t) => (
+            {TAB_DATA.map((t) => (
               <button
-                key={t}
-                onClick={() => handleTabChange(t)}
-                className={`pb-2 text-xs font-mono font-bold uppercase tracking-widest transition-all duration-300 ${tab === t ? "text-orange-500 border-b-2 border-orange-500" : "text-slate-500 hover:text-slate-300"
-                  }`}
+                key={t.id}
+                onClick={() => handleTabChange(t.id)}
+                className={`pb-4 text-xs font-mono font-bold uppercase tracking-widest transition-all duration-300 relative ${
+                  tab === t.id ? "text-orange-500" : "text-slate-500 hover:text-slate-300"
+                }`}
               >
-                {` ${t} `}
+                {t.title}
+                {tab === t.id && (
+                  <motion.div 
+                    layoutId="activeTab"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-500" 
+                  />
+                )}
               </button>
             ))}
           </div>
@@ -128,11 +172,11 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* BACKGROUND TECH MARQUEE */}
-      <div className="mt-32 overflow-hidden relative">
+      {/* BACKGROUND TECH MARQUEE (Increased contrast slightly) */}
+      <div className="mt-32 overflow-hidden relative opacity-40">
         <motion.div
           animate={{ x: [0, -2000] }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
           className="flex gap-16 whitespace-nowrap select-none font-mono"
         >
           {[...Array(2)].map((_, i) => (
@@ -140,7 +184,7 @@ const AboutSection = () => {
               {["DOCKER", "KUBERNETES", "TERRAFORM", "AWS", "JENKINS", "LINUX", "ANSIBLE", "PROMETHEUS"].map((tech) => (
                 <span
                   key={tech}
-                  className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-900 via-orange-600 to-amber-400 "
+                  className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-orange-900 to-slate-800"
                 >
                   {tech}
                 </span>

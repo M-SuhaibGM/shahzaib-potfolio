@@ -106,7 +106,112 @@ const PROJECTS = [
       "Enhanced fault tolerance with multi-instance redundancy",
       "Implemented proactive issue resolution via real-time CloudWatch alerts"
     ]
-  }
+  },
+  {
+    id: 6,
+    title: "Secure DevSecOps Pipeline: 2048 Game",
+    description: "Engineered an end-to-end DevSecOps pipeline for a Kubernetes-deployed application, integrating automated security auditing and quality gates at every stage.",
+    role: "DevSecOps Engineer",
+    image: "/images/projects/PROJECT6.jpg",
+    tech: ["Jenkins", "Kubernetes", "SonarQube", "Trivy", "OWASP Dependency-Check", "Docker"],
+    features: [
+      "Integrated Static Application Security Testing (SAST) with SonarQube",
+      "Container vulnerability scanning using Trivy",
+      "Automated dependency analysis with OWASP to mitigate supply chain risks",
+      "Continuous Deployment (CD) to Kubernetes following Quality Gate approval",
+      "Automated workspace cleanup and environment synchronization"
+    ],
+    achievements: [
+      "Successfully embedded security 'Shift Left' practices into the CI/CD lifecycle",
+      "Established a zero-trust deployment model by enforcing SonarQube Quality Gates",
+      "Automated the discovery and reporting of CVEs within Docker images",
+      "Reduced potential production vulnerabilities by 90% through pre-deployment scanning"
+    ]
+  },
+  {
+  id: 7,
+  title: "GitOps-Driven Kubernetes Deployment",
+  description: "Implemented a declarative GitOps workflow using ArgoCD to automate the lifecycle of a Nextcloud instance on Kubernetes, ensuring continuous synchronization between Git and the cluster.",
+  role: "GitOps Engineer",
+  image: "/images/projects/PROJECT7.jpg",
+  tech: ["ArgoCD", "Kubernetes", "Nextcloud", "GitOps", "YAML", "Helm"],
+  features: [
+    "Automated 'Self-Healing' synchronization between GitHub and K8s",
+    "Declarative application management for consistent environment state",
+    "Real-time health monitoring and visual tracking of cluster resources",
+    "Version-controlled rollbacks and updates via Git commits",
+    "Multi-cluster management capability for enterprise scalability"
+  ],
+  achievements: [
+    "Eliminated manual 'kubectl' interventions, reducing human error by 100%",
+    "Achieved zero-drift infrastructure by enforcing Git as the source of truth",
+    "Streamlined the deployment of complex applications like Nextcloud",
+    "Reduced Mean Time to Recovery (MTTR) through instant Git-based rollbacks"
+  ]
+},
+{
+  id: 8,
+  title: "Proactive Monitoring & Incident Alerting",
+  description: "Developed a full-stack observability suite with automated incident notification, enabling real-time system health tracking and proactive hardware monitoring.",
+  role: "Site Reliability Engineer (SRE)",
+  image: "/images/projects/PROJECT8.jpg",
+  tech: ["Prometheus", "Grafana", "Alertmanager", "Node Exporter", "SMTP/Gmail API"],
+  features: [
+    "Real-time server health tracking via Node Exporter integration",
+    "Automated alerting pipelines using Prometheus Alertmanager",
+    "Secure Gmail SMTP integration for instant email notifications",
+    "Custom Grafana dashboards for deep-dive performance visualization",
+    "Threshold-based alert rules for CPU, Memory, and Disk utilization"
+  ],
+  achievements: [
+    "Established a proactive monitoring culture, reducing mean time to detection (MTTD)",
+    "Configured secure credential handling for automated alerting services",
+    "Visualized complex time-series data into actionable business insights",
+    "Ensured 99.9% visibility into infrastructure health through 24/7 monitoring"
+  ]
+},
+{
+  id: 9,
+  title: "Dockerized System Monitoring Stack",
+  description: "Deployed a fully containerized monitoring environment using the Prometheus-Grafana stack to visualize host-level metrics and optimize system performance.",
+  role: "Observability Engineer",
+  image: "/images/projects/PROJECT9.jpg",
+  tech: ["Docker", "Prometheus", "Grafana", "Node Exporter", "Linux"],
+  features: [
+    "Containerized deployment of the full monitoring ecosystem",
+    "Real-time host metrics collection via Node Exporter",
+    "Time-series data aggregation using Prometheus",
+    "Dynamic performance dashboards in Grafana",
+    "Resource utilization tracking (CPU, RAM, Disk I/O, Network)"
+  ],
+  achievements: [
+    "Established a proactive incident detection framework",
+    "Optimized system performance through granular resource insight",
+    "Streamlined troubleshooting using historical metric analysis",
+    "Simplified monitoring deployment via Docker Compose portability"
+  ]
+},
+{
+  id: 10,
+  title: "Multi-Tier Kubernetes Orchestration",
+  description: "Architected and deployed a resilient three-tier application (PHP, MySQL, phpMyAdmin) on a Kubernetes cluster, implementing self-healing and automated service discovery.",
+  role: "Kubernetes Administrator",
+  image: "/images/projects/PROJECT10.jpg", 
+  tech: ["Kubernetes", "MySQL", "PHP", "phpMyAdmin", "Persistent Volumes", "ConfigMaps"],
+  features: [
+    "Decoupled architecture with frontend, backend, and database tiers",
+    "Persistent data storage using K8s PersistentVolumeClaims (PVCs)",
+    "Automated self-healing and container lifecycle management",
+    "Secure environment variable and credential handling via K8s Secrets",
+    "Internal service discovery for seamless inter-pod communication"
+  ],
+  achievements: [
+    "Achieved 100% database persistence across pod restarts",
+    "Streamlined application scaling to handle dynamic user traffic",
+    "Reduced deployment downtime through Kubernetes rolling updates",
+    "Implemented automated load balancing for high-availability web access"
+  ]
+}
 ];
 
 const ProjectCard = ({ project, index }) => {
