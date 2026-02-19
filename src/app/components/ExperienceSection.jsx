@@ -68,7 +68,7 @@ const ExperienceSection = () => {
             </div>
 
             <p className="text-slate-300 text-lg mb-8 leading-relaxed font-light italic border-l-4 border-orange-500/40 pl-6">
-              "{internshipDetails.description}"
+              {internshipDetails.description}
             </p>
 
             {/* What I Learned Section */}

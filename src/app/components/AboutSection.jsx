@@ -104,7 +104,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h3 className="text-white font-bold">Infrastucture as Code</h3>
-                  <p className="text-slate-400 text-sm italic">"Automate everything, document nothing manual."</p>
+                  <p className="text-slate-400 text-sm italic">Automate everything, document nothing manual.</p>
                 </div>
               </div>
             </motion.div>
