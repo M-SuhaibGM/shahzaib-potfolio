@@ -25,7 +25,7 @@ const Footer = () => {
               Shahzaib <span className="text-orange-500 text-2xl ">Akaram</span>
             </Link>
             <p className="text-amber-100/60 max-w-xs leading-relaxed text-[14px]">
-              Architecting resilient cloud infrastructures and automated CI/CD pipelines. 
+              Architecting resilient cloud infrastructures and automated CI/CD pipelines.
               Based in Lahore, Pakistan.
             </p>
           </div>
@@ -76,9 +76,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
+        {/* Bottom Bar */}
         <div className="pt-8 border-t border-orange-500/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-amber-100/40">
-            &copy; {new Date().getFullYear()} Shahzaib.Akram .
+            &copy; {new Date().getFullYear()} Shahzaib Akram. All Rights Reserved.
           </p>
 
           {/* Scroll to Top Button */}

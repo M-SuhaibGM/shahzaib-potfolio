@@ -32,7 +32,7 @@ const PROJECTS = [
     title: "Multi-Environment IaC Architecture",
     description: "Architected and deployed isolated Development, Staging, and Production environments on AWS using Terraform Custom Modules for standardized infrastructure delivery.",
     role: "Cloud Infrastructure Engineer",
-    image: "/images/projects/PROJECT2.jpg", // Update with your Terraform/AWS architecture diagram
+    image: "/images/projects/PROJECT2.jpeg", // Update with your Terraform/AWS architecture diagram
     tech: ["Terraform", "AWS (EC2/S3/DynamoDB)", "HCL", "Remote Backend", "State Management"],
     features: [
       "Custom Terraform Modules for reusable and maintainable infrastructure",
@@ -52,7 +52,7 @@ const PROJECTS = [
     title: "Cloud Governance & State Security",
     description: "Implemented a robust Infrastructure as Code (IaC) governance model on AWS, focusing on centralized state management and high-concurrency protection.",
     role: "Infrastructure Lead",
-    image: "/images/projects/PROJECT3.jpg", // Replace with a screenshot of your S3 bucket or DynamoDB table
+    image: "/images/projects/PROJECT3.jpeg", // Replace with a screenshot of your S3 bucket or DynamoDB table
     tech: ["Terraform", "AWS S3", "Amazon DynamoDB", "IAM Policies", "Encryption"],
     features: [
       "Centralized State Management via encrypted S3 backend",
@@ -92,7 +92,7 @@ const PROJECTS = [
     title: "Resilient & Scalable AWS Architecture",
     description: "Designed and stress-tested a highly available web infrastructure on AWS utilizing Auto Scaling and Load Balancing to ensure 100% uptime under dynamic workloads.",
     role: "Cloud Architect",
-    image: "/images/projects/PROJECT5.jpg", // Use a diagram showing ALB and Auto Scaling groups
+    image: "/images/projects/PROJECT5.jpeg", // Use a diagram showing ALB and Auto Scaling groups
     tech: ["AWS (ALB/ASG)", "CloudWatch", "EC2 Launch Templates", "SNS", "Stress Testing"],
     features: [
       "Traffic distribution via Application Load Balancer (ALB)",
@@ -196,7 +196,7 @@ const PROJECTS = [
   title: "Multi-Tier Kubernetes Orchestration",
   description: "Architected and deployed a resilient three-tier application (PHP, MySQL, phpMyAdmin) on a Kubernetes cluster, implementing self-healing and automated service discovery.",
   role: "Kubernetes Administrator",
-  image: "/images/projects/PROJECT10.jpg", 
+  image: "/images/projects/PROJECT10.jpeg", 
   tech: ["Kubernetes", "MySQL", "PHP", "phpMyAdmin", "Persistent Volumes", "ConfigMaps"],
   features: [
     "Decoupled architecture with frontend, backend, and database tiers",

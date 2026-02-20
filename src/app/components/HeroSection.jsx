@@ -28,10 +28,6 @@ const HeroSection = () => {
           </h2>
 
           <h1 className="text-white mb-6 font-extrabold tracking-tighter leading-tight">
-            <span className="text-3xl sm:text-3xl pb-1 lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-400 to-orange-600">
-              Deploying{" "}
-            </span>
-            <br />
             {/* --- ANIMATION TEXT (Decreased Size) --- */}
             <TypeAnimation
               sequence={[
@@ -43,7 +39,7 @@ const HeroSection = () => {
                 1500,
                 "Infrastructure as Code Advocate",
                 1500,
-                "AWS & Azure Professional",
+                "AWS  Professional",
                 1500,
                 "Kubernetes Orchestrator",
                 1500,

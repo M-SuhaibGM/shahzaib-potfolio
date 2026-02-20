@@ -6,8 +6,8 @@ const SKILLS_DATA = [
   {
     category: "Cloud & Orchestration",
     skills: [
-      { name: "AWS (EKS/EC2/S3)", level: 90 },
-      { name: "Kubernetes", level: 85 },
+      { name: "AWS ", level: 90 },
+      { name: "Kubernetes", level: 80 },
       { name: "Docker", level: 90 },
       { name: "Nginx & DNS", level: 80 },
     ],
@@ -15,9 +15,9 @@ const SKILLS_DATA = [
   {
     category: "DevOps & GitOps",
     skills: [
-      { name: "Terraform (IaC)", level: 85 },
-      { name: "GitHub Actions (CI/CD)", level: 95 },
-      { name: "ArgoCD", level: 80 },
+      { name: "Terraform (IaC)", level: 80 },
+      { name: "GitHub Actions (CI/CD)", level: 80 },
+      { name: "ArgoCD", level: 70 },
       { name: "Git & Shell Scripting", level: 85 },
     ],
   },
@@ -33,9 +33,9 @@ const SKILLS_DATA = [
   {
     category: "Web & Development",
     skills: [
-      { name: "Python", level: 80 },
+      { name: "Python", level: 70 },
       { name: "HTML & CSS", level: 85 },
-      { name: "WordPress", level: 70 },
+      { name: "WordPress", level: 80 },
       { name: "Let's Encrypt / SSL", level: 90 },
     ],
   },
